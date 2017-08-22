@@ -12,60 +12,12 @@ namespace good_cooder
     class Parser
     {
     public:
-        Parser(int max_column = 4096) :_max_column(max_column),_row(0)
-        {
-            _str_cache.push_back(std::unique_ptr<const char*[]>(new const char*[_max_column]));
-            memset(_str_cache[0].get(), 0, sizeof(const char*)*_max_column);
-        }
+        Parser(int max_column = 4096);
+        ~Parser();
+        int read_line(const char* buffer);
 
-        ~Parser()
-        {
 
-        }
-
-        int read_line(const char* buffer)
-        {
-            if (buffer == nullptr)
-            {
-                //TODO log invalid input
-                return -1;
-            }
-
-            const char* src = buffer;
-            if (*src == '\n' || *src == '\0')
-            {
-                //TOOD log empty buffer
-                return -1;
-            }
-
-            _row = 1;
-            _columns.clear();
-            _columns.resize(1);
-
-            int col_idx = 0;
-            _str_cache[0][col_idx++] = src;
-            for(;;)
-            {
-                while (*src != '\t' && *src != '\n' && *src != '\0') { ++src; }
-                if (*src == '\t' && *(src+1) != '\0' && *(src +1) != '\n')
-                {
-                    _str_cache[0][col_idx++] = ++src;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            _columns[0] = col_idx;
-
-            return 0;
-        }
-
-        int read_all(const char* buffer)
-        {
-            return 0;
-        }
+        int read_all(const char* buffer);
 
         template<class T>
         int get_item(const int column, T* res)
