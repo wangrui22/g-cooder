@@ -2,7 +2,7 @@
 #include "string.h"
 
 namespace good_coder {
-Parser::Parser() :  _row(0) {
+Parser::Parser() :  _row(0) , _column(0) {
     memset(_str_cache, 0, sizeof(const char*) * MAX_COLUMN);
 }
 
@@ -22,8 +22,7 @@ int Parser::read_line(const char* buffer) {
     }
 
     _row = 1;
-    _columns.clear();
-    _columns.resize(1);
+    _column = 1;
 
     int col_idx = 0;
     _str_cache[col_idx++] = src;
@@ -32,19 +31,15 @@ int Parser::read_line(const char* buffer) {
         while (*src != '\t' && *src != '\n' && *src != '\0') {
             ++src;
         }
-        
-        if(*src == '\n' || *src == '\0') {
-            break;
-        }
 
-        if (*src == '\t' && *(src + 1) != '\0' && *(src + 1) != '\n') {
+        if (*src == '\t' && *(src + 1) != '\t' && *(src + 1) != '\n' && *(src + 1) != '\0') {
             _str_cache[col_idx++] = ++src;
         } else {
             break;
         }
     }
 
-    _columns[0] = col_idx;
+    _column = col_idx;
 
     BOOST_LOG_TRIVIAL(info) << "read line buffer success.";
 

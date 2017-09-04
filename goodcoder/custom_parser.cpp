@@ -50,6 +50,7 @@ int parse(const char* str, std::vector<Point3>* res) {
     const char* src = str;
 
     while (*src++ != ':') {}
+
     if (*src == '\t' || *src == '\n' || *src == '\0') {
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format : empty array.";
         return -1;
@@ -59,7 +60,6 @@ int parse(const char* str, std::vector<Point3>* res) {
     res->resize(num);
     int cur_idx = 0;
 
-    
     if (POINT_COORD_COUNT != sscanf(src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
                     &(*res)[cur_idx].z)) {
         res->clear();

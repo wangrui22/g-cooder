@@ -51,8 +51,7 @@ int parse(const char* str, std::vector<T>* res, const char* format) {
 
     const char* src = str;
 
-    while (*src++ != ':') {
-    }
+    while (*src++ != ':') {}
 
     if (*src == '\t' || *src == '\n' || *src == '\0') {
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format : empty array.";
@@ -69,7 +68,7 @@ int parse(const char* str, std::vector<T>* res, const char* format) {
         return -1;
     }
 
-    for (;;) {
+    while (true) {
         while (*src != '\t' && *src != '\n' && *src != '\0' && *src != ',') {
             ++src;
         }

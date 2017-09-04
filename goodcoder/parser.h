@@ -24,7 +24,7 @@ public:
             return -1;
         }
 
-        if (column > _columns[0] - 1) {
+        if (column > _column - 1) {
             BOOST_LOG_TRIVIAL(fatal) << "input column overflow.";
             return -1;
         }
@@ -32,13 +32,10 @@ public:
         return parse(_str_cache[column], res);
     }
 
-    int read_all(const char* buffer);
-    template <class T> int get_item(const int row, const int column, T* result) {}
-
 protected:
 private:
     int _row;
-    std::vector<int> _columns;
+    int _column;
     const char* _str_cache[MAX_COLUMN] ;
 
 };
