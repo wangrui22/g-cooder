@@ -1,5 +1,5 @@
-#ifndef BUILD_IN_PARSER_H
-#define BUILD_IN_PARSER_H
+#ifndef GOODCODER_BUILD_IN_PARSER_H
+#define GOODCODER_BUILD_IN_PARSER_H
 
 #include <stdint.h>
 #include <vector>

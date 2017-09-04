@@ -1,5 +1,5 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef GOODCODER_PARSER_H
+#define GOODCODER_PARSER_H
 
 #include <memory>
 #include <vector>

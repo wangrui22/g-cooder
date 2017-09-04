@@ -1,5 +1,5 @@
-#ifndef CUSTOM_PARSER_H
-#define CUSTOM_PARSER_H
+#ifndef GOODCODER_CUSTOM_PARSER_H
+#define GOODCODER_CUSTOM_PARSER_H
 
 #include <stdint.h>
 #include <vector>
