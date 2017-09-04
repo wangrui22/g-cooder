@@ -3,19 +3,20 @@
 #include <boost/log/trivial.hpp>
 
 namespace good_coder {
+const int POINT_COORD_COUNT = 3;
 
 int parse(const char* str, Point3* res) {
-    if (str == nullptr) {
+    if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
     }
 
-    if (res == nullptr) {
+    if (res == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
         return -1;
     }
 
-    if (3 == sscanf(str, "%f%f%f", &res->x, &res->y, &res->z)) {
+    if (POINT_COORD_COUNT == sscanf(str, "%f%f%f", &res->x, &res->y, &res->z)) {
         return 0;
     } else {
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
@@ -24,12 +25,12 @@ int parse(const char* str, Point3* res) {
 }
 
 int parse(const char* str, std::vector<Point3>* res) {
-    if (str == nullptr) {
+    if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
     }
 
-    if (res == nullptr) {
+    if (res == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
         return -1;
     }
@@ -42,15 +43,13 @@ int parse(const char* str, std::vector<Point3>* res) {
     }
 
     if (num < 1) {
-        BOOST_LOG_TRIVIAL(fatal) << "iinvalid input's format : array number is less than 1.";
+        BOOST_LOG_TRIVIAL(fatal) << "invalid input's format : array number is less than 1.";
         return -1;
     }
 
     const char* src = str;
 
-    while (*src++ != ':') {
-    }
-
+    while (*src++ != ':') {}
     if (*src == '\t' || *src == '\n' || *src == '\0') {
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format : empty array.";
         return -1;
@@ -60,7 +59,8 @@ int parse(const char* str, std::vector<Point3>* res) {
     res->resize(num);
     int cur_idx = 0;
 
-    if (3 != sscanf(src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
+    
+    if (POINT_COORD_COUNT != sscanf(src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
                     &(*res)[cur_idx].z)) {
         res->clear();
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
@@ -69,14 +69,14 @@ int parse(const char* str, std::vector<Point3>* res) {
 
     ++cur_idx;
 
-    for (;;) {
+    while (true) {
         while (*src != '\t' && *src != '\n' && *src != '\0' && *src != ',') {
             ++src;
         }
 
         if (*src == ',' && *(src + 1) != '\t' && *(src + 1) != '\0' &&
                 *(src + 1) != '\n') {
-            if (3 != sscanf(++src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
+            if (POINT_COORD_COUNT != sscanf(++src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
                             &(*res)[cur_idx].z)) {
                 res->clear();
                 BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";

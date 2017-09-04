@@ -10,12 +10,26 @@ const char* test = "comlog\t12345678\t3."
 
 class TestParser : public ::testing::Test {
 public:
+    TestParser() : _test_c(NULL) {}
+
+    virtual ~TestParser() {
+        if (_test_c) {
+            delete _test_c;
+            _test_c = NULL;
+        }
+    }
+
     virtual void SetUp() {
         _test_c = new good_coder::Parser();
     }
+
     virtual void TearDown() {
-        delete _test_c;
+        if (_test_c) {
+            delete _test_c;
+            _test_c = NULL;
+        }
     }
+
     good_coder::Parser* _test_c;
 };
 

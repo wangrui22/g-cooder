@@ -12,7 +12,9 @@
 namespace good_coder {
 class Parser {
 public:
-    Parser(int max_column = 4096);
+    static const int MAX_COLUMN = 4096;    
+public:
+    Parser();
     ~Parser();
     int read_line(const char* buffer);
 
@@ -27,7 +29,7 @@ public:
             return -1;
         }
 
-        return parse(_str_cache[0][column], res);
+        return parse(_str_cache[column], res);
     }
 
     int read_all(const char* buffer);
@@ -35,10 +37,10 @@ public:
 
 protected:
 private:
-    int _max_column;
     int _row;
     std::vector<int> _columns;
-    std::vector<std::unique_ptr<const char *[]>> _str_cache;
+    const char* _str_cache[MAX_COLUMN] ;
+
 };
 }
 

@@ -1,7 +1,7 @@
 OBJS = build_in_parser.o custom_parser.o parser.o 
 CC = g++
 TARGET = goodcoder
-CFLAGS += -g -std=c++11 -Wall
+CFLAGS += -g -Wall
 DEFS = -D BOOST_LOG_DYN_LINK
 
 LDIR = -L/usr/local/lib/

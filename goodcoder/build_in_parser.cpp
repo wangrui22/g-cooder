@@ -7,12 +7,12 @@
 
 namespace good_coder {
 template <typename T> int parse(const char* str, T* res, const char* format) {
-    if (str == nullptr) {
+    if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
     }
 
-    if (res == nullptr) {
+    if (res == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
         return -1;
     }
@@ -27,12 +27,12 @@ template <typename T> int parse(const char* str, T* res, const char* format) {
 
 template <typename T>
 int parse(const char* str, std::vector<T>* res, const char* format) {
-    if (str == nullptr) {
+    if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
     }
 
-    if (res == nullptr) {
+    if (res == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
         return -1;
     }
@@ -136,12 +136,12 @@ int parse(const char* str, std::vector<uint64_t>* res) {
 }
 
 int parse(const char* str, char* res) {
-    if (str == nullptr) {
+    if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
     }
 
-    if (res == nullptr) {
+    if (res == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
         return -1;
     }
