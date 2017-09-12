@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
     <ClCompile Include="parser.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
@@ -25,6 +22,9 @@
       <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="custom_parser.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_test.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
