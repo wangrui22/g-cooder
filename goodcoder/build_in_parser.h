@@ -10,7 +10,7 @@ int parse(const char* str, uint32_t* res);
 int parse(const char* str, float* res);
 int parse(const char* str, double* res);
 int parse(const char* str, uint64_t* res);
-int parse(const char* str, char* res);
+//int parse(const char* str, char* res);
 int parse(const char* str, char* res, int space);
 
 //{num:item1,item2,item3...}

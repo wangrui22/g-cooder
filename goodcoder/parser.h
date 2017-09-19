@@ -18,7 +18,7 @@ public:
     ~Parser();
     int read_line(const char* buffer);
 
-    template <class T> int get_item(const int column, T* res, int space = 1) {
+    template <class T> int get_item(const int column, T* res) {
         if (_row == 0) {
             BOOST_LOG_TRIVIAL(fatal) << "no buffer input yet.";
             return -1;
@@ -30,6 +30,20 @@ public:
         }
 
         return parse(_str_cache[column], res);
+    }
+
+    template <class T> int get_item(const int column, T* res, int space) {
+        if (_row == 0) {
+            BOOST_LOG_TRIVIAL(fatal) << "no buffer input yet.";
+            return -1;
+        }
+
+        if (column > _column - 1) {
+            BOOST_LOG_TRIVIAL(fatal) << "input column overflow.";
+            return -1;
+        }
+
+        return parse(_str_cache[column], res, space);
     }
 
 protected:

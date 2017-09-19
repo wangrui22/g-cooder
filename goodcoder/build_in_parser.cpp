@@ -135,29 +135,6 @@ int parse(const char* str, std::vector<uint64_t>* res) {
     return parse(str, res, "%llu");
 }
 
-int parse(const char* str, char* res) {
-    if (str == NULL) {
-        BOOST_LOG_TRIVIAL(fatal) << "input is null.";
-        return -1;
-    }
-
-    if (res == NULL) {
-        BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
-        return -1;
-    }
-
-    const char* src = str;
-    char* dst = res;
-
-    while (*src != '\t' && *src != '\n' && *src != '\0') {
-        *dst++ = *src++;
-    }
-
-    *dst = '\0';
-
-    return 0;
-}
-
 int parse(const char* str, char* res, int space) {
     if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
