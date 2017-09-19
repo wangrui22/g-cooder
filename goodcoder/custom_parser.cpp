@@ -61,7 +61,7 @@ int parse(const char* str, std::vector<Point3>* res) {
     int cur_idx = 0;
 
     if (POINT_COORD_COUNT != sscanf(src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
-                    &(*res)[cur_idx].z)) {
+                                    &(*res)[cur_idx].z)) {
         res->clear();
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
         return -1;
@@ -77,7 +77,7 @@ int parse(const char* str, std::vector<Point3>* res) {
         if (*src == ',' && *(src + 1) != '\t' && *(src + 1) != '\0' &&
                 *(src + 1) != '\n') {
             if (POINT_COORD_COUNT != sscanf(++src, "%f%f%f", &(*res)[cur_idx].x, &(*res)[cur_idx].y,
-                            &(*res)[cur_idx].z)) {
+                                            &(*res)[cur_idx].z)) {
                 res->clear();
                 BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
                 return -1;

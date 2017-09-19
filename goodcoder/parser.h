@@ -12,7 +12,7 @@
 namespace good_coder {
 class Parser {
 public:
-    static const int MAX_COLUMN = 4096;    
+    static const int MAX_COLUMN = 4096;
 public:
     Parser();
     ~Parser();
