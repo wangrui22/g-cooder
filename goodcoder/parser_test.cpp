@@ -44,7 +44,7 @@ TEST_F(TestParser, FirstTest) {
 
     EXPECT_EQ(0, _test_c->read_line(test));
 
-    EXPECT_EQ(0, _test_c->get_item(0, item_c));
+    EXPECT_EQ(0, _test_c->get_item(0, item_c, 256));
     EXPECT_EQ(0, strcmp("comlog", item_c));
 
     EXPECT_EQ(0, _test_c->get_item(1, &item_i));
@@ -56,7 +56,7 @@ TEST_F(TestParser, FirstTest) {
     EXPECT_EQ(0, _test_c->get_item(3, &item_llu));
     EXPECT_EQ(9223372036854775807, item_llu);
 
-    EXPECT_EQ(0, _test_c->get_item(4, item_c));
+    EXPECT_EQ(0, _test_c->get_item(4, item_c, 256));
     EXPECT_EQ(0, strcmp("goodcoder", item_c));
 
     EXPECT_EQ(0, _test_c->get_item(5, &item_is));

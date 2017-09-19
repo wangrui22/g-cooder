@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 
 #include <boost/log/trivial.hpp>
 
@@ -153,6 +154,34 @@ int parse(const char* str, char* res) {
     }
 
     *dst = '\0';
+
+    return 0;
+}
+
+int parse(const char* str, char* res, int space) {
+    if (str == NULL) {
+        BOOST_LOG_TRIVIAL(fatal) << "input is null.";
+        return -1;
+    }
+
+    if (res == NULL) {
+        BOOST_LOG_TRIVIAL(fatal) << "output result pointer is null.";
+        return -1;
+    }
+
+    const char* src = str;
+    int len = 0;
+    while (*src != '\t' && *src != '\n' && *src != '\0') {
+        src++;
+        len++;
+    }
+    if (len + 1 > space) {
+        BOOST_LOG_TRIVIAL(fatal) << "input char* array space overflow.";
+        return -1;
+    }
+
+    memcpy(res, str, len);
+    res[len] = '\0';
 
     return 0;
 }

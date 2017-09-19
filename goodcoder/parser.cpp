@@ -45,4 +45,19 @@ int Parser::read_line(const char* buffer) {
 
     return 0;
 }
+
+template <> 
+int Parser::get_item(const int column, char* res, int space) {
+    if (_row == 0) {
+        BOOST_LOG_TRIVIAL(fatal) << "no buffer input yet.";
+        return -1;
+    }
+
+    if (column > _column - 1) {
+        BOOST_LOG_TRIVIAL(fatal) << "input column overflow.";
+        return -1;
+    }
+
+    return parse(_str_cache[column], res, space);
+}
 }

@@ -18,7 +18,7 @@ public:
     ~Parser();
     int read_line(const char* buffer);
 
-    template <class T> int get_item(const int column, T* res) {
+    template <class T> int get_item(const int column, T* res, int space = 1) {
         if (_row == 0) {
             BOOST_LOG_TRIVIAL(fatal) << "no buffer input yet.";
             return -1;
