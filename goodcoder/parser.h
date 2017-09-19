@@ -50,7 +50,7 @@ protected:
 private:
     int _row;
     int _column;
-    const char* _str_cache[MAX_COLUMN] ;
+    const char* _str_cache[MAX_COLUMN];
 
 };
 }
