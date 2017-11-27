@@ -13,12 +13,11 @@
  *  
  **/
 
-
 #include "parser.h"
 #include <cstring>
 
 namespace good_coder {
-Parser::Parser(): _row(0), _column(0) {
+Parser::Parser() : _row(0), _column(0) {
     memset(_str_cache, 0, sizeof(const char*) * MAX_COLUMN);
 }
 

@@ -16,7 +16,6 @@
  *        customer can also define parsing type by add parsing rule in custom_parser.h/cpp.
  **/
 
-
 #ifndef GOODCODER_PARSER_H
 #define GOODCODER_PARSER_H
 

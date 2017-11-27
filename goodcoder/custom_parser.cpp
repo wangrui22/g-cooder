@@ -13,7 +13,6 @@
  *  
  **/
 
-
 #include "custom_parser.h"
 #include <cstdio>
 #include <boost/log/trivial.hpp>
