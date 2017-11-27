@@ -1,3 +1,18 @@
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file custom_parser.h
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief custom parser declaration
+ *  
+ **/
+
 #ifndef GOODCODER_CUSTOM_PARSER_H
 #define GOODCODER_CUSTOM_PARSER_H
 

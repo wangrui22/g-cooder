@@ -1,5 +1,21 @@
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file parser.cpp
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief word parser interface implementation
+ *  
+ **/
+
+
 #include "parser.h"
-#include "string.h"
+#include <cstring>
 
 namespace good_coder {
 Parser::Parser(): _row(0), _column(0) {

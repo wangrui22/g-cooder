@@ -1,5 +1,21 @@
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file custom_parser.cpp
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief custom parser implementation
+ *  
+ **/
+
+
 #include "custom_parser.h"
-#include <stdio.h>
+#include <cstdio>
 #include <boost/log/trivial.hpp>
 
 namespace good_coder {

@@ -1,13 +1,28 @@
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file build_in_parser.cpp
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief build in parser implementation
+ *  
+ **/
+
 #include "build_in_parser.h"
 
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
 #include <boost/log/trivial.hpp>
 
 namespace good_coder {
-template <typename T> int parse(const char* str, T* res, const char* format) {
+template <typename T> 
+int parse(const char* str, T* res, const char* format) {
     if (str == NULL) {
         BOOST_LOG_TRIVIAL(fatal) << "input is null.";
         return -1;
@@ -61,26 +76,28 @@ int parse(const char* str, std::vector<T>* res, const char* format) {
 
     res->clear();
     res->resize(num);
-    int cur_idx = 0;
 
-    if (1 != sscanf(src, format, &(*res)[cur_idx++])) {
+    int cur_idx = 0;
+    if (1 != sscanf(src, format, &(*res)[cur_idx])) {
         res->clear();
         BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
         return -1;
     }
+    ++cur_idx;
 
     while (true) {
         while (*src != '\t' && *src != '\n' && *src != '\0' && *src != ',') {
             ++src;
         }
 
-        if (*src == ',' && *(src + 1) != '\t' && *(src + 1) != '\0' &&
-                *(src + 1) != '\n') {
-            if (1 != sscanf(++src, format, &(*res)[cur_idx++])) {
+        if (*src == ',' && *(src + 1) != '\t' && *(src + 1) != '\0' && *(src + 1) != '\n') {
+            ++src;
+            if (1 != sscanf(src, format, &(*res)[cur_idx])) {
                 res->clear();
                 BOOST_LOG_TRIVIAL(fatal) << "invalid input's format.";
                 return -1;
             }
+            ++cur_idx;
         } else {
             break;
         }

@@ -1,3 +1,22 @@
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file parser.h
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief word parser declaration
+ *        class Parser is used for parsing words like: <col1>\t<col2>\t...\t<coln>
+ *        each cloumn is a record may be the following types:
+ *        int/uint32_t/uint64_t, float/double, char*, or this record's collection.
+ *        customer can also define parsing type by add parsing rule in custom_parser.h/cpp.
+ **/
+
+
 #ifndef GOODCODER_PARSER_H
 #define GOODCODER_PARSER_H
 

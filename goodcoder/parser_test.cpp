@@ -1,5 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+/***************************************************************************
+ * 
+ * Copyright (c) 2015 Baidu.com, Inc. All Rights Reserved 
+ * 
+ **************************************************************************/
+ 
+ /**
+ * @file parser_test.cpp
+ * @author wangrui(wangrui22@baidu.com)
+ * @date 2017/08/21
+ * @version 0.0.1 
+ * @brief word parser unit test
+ *  
+ **/
+
+#include <cstdio>
+#include <cstdlib>
 
 #include "gtest/gtest.h"
 #include "parser.h"
